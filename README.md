@@ -1,84 +1,302 @@
-# Twoge AWS Deployment Guide
+## Adding RDS PostgreSQL Section
 
-This guide outlines the steps to deploy the Twoge application on Amazon Web Services (AWS). We'll be utilizing multiple AWS services to ensure a scalable, reliable, and secure environment for the application.
+# Comprehensive AWS Deployment Guide for Twoge Application
+
+This is a comprehensive guide for deploying the Twoge application on AWS. It's designed for users with minimal AWS and networking knowledge. You'll find instructions for setting up the entire infrastructure using the AWS Management Console, as well as terminal commands needed for server setup and software installation.
 
 ## Table of Contents
 
-- [Milestone 1: Create Amazon VPC with Two Public Subnets](#milestone-1-create-amazon-vpc-with-two-public-subnets)
-- [Milestone 2: Host Static Files in S3](#milestone-2-host-static-files-in-s3)
-- [Milestone 3: Create IAM Role](#milestone-3-create-iam-role)
-- [Milestone 4: Launch EC2 Instance](#milestone-4-launch-ec2-instance)
-- [Milestone 4A: Connect S3 Bucket to EC2](#milestone-4a-connect-s3-bucket-to-ec2)
-- [Milestone 5: Create Amazon ALB](#milestone-5-create-amazon-alb)
-- [Milestone 6: Create Amazon ASG](#milestone-6-create-amazon-asg)
-- [Milestone 7: Use Amazon SNS](#milestone-7-use-amazon-sns)
+- [Prerequisites](#prerequisites)
+- [AWS Services and Their Purpose](#aws-services-and-their-purpose)
+- [Step-by-Step Guide](#step-by-step-guide)
+  - [Create Amazon VPC with Two Public subnets](#create-amazon-vpc-with-two-public-subnets)
+  - [Create IAM Role for S3](#create-iam-role-for-s3)
+  - [Host Static Files in S3 with IAM Policy](#host-static-files-in-s3-with-iam-policy)
+  - [Launch EC2 Instance with Amazon Linux 2 AMI and Twoge Configuration](#launch-ec2-instance-with-amazon-linux-2-ami-and-twoge-configuration)
+    - [SSH into EC2 and Install Twoge](#ssh-into-ec2-and-install-twoge)
+    - [Installing Nginx](#installing-nginx)
+    - [Nginx Configuration](#nginx-configuration)
+  - [Create Amazon RDS for PostgreSQL](#create-amazon-rds-for-postgresql)
+  - [Twoge Daemon](#twoge-daemon)
+  - [Create Amazon ALB](#create-amazon-alb)
+  - [Configure Amazon ASG with ALB](#configure-amazon-asg-with-alb)
+  - [Configure Amazon SNS for ASG Notifications](#configure-amazon-sns-for-asg-notifications)
+- [Appendix](#appendix)
+  - [Terminal Commands](#terminal-commands)
+  - [JSON file of S3 bucket policy](#json-file-of-s3-bucket-policy)
+  - [Nginx Configuration Sample](#nginx-configuration-sample)
+  - [Twoge Daemon Configuration](#twoge-daemon-configuration)
 
-## Milestone 1: Create Amazon VPC with Two Public Subnets
+## Step-by-Step Guide
 
-### Steps:
+### Create Amazon VPC with Two Public Subnets
 
-1. **Navigate to VPC Dashboard**: Open the AWS Console and go to Services -> VPC.
-2. **Create VPC**: Click on "Your VPCs" -> "Create VPC", then enter a Name and a CIDR block, for example, `10.0.0.0/16`.
-3. **Create Subnets**: Navigate to "Subnets" -> "Create subnet". Choose your VPC, enter a Name, and a CIDR block, for example, `10.0.1.0/24`. Repeat for the second subnet.
-4. **Create Internet Gateway**: Go to "Internet Gateways" -> "Create internet gateway", then give it a Name.
-5. **Attach Internet Gateway to VPC**: Select your Internet Gateway, go to "Actions" -> "Attach to VPC", and choose your VPC.
-6. **Update Route Table**: Go to "Route Tables" -> Select your VPC's route table -> "Routes" -> "Edit routes", then add a new route `0.0.0.0/0` and set its target to your Internet Gateway.
+1. **Navigate to VPC Dashboard**: Open AWS Console and go to **Services > VPC**.
+2. **Create VPC**: Click on **Create VPC**.
 
-## Milestone 2: Host Static Files in S3
+   - Choose **VPC and more** to create the VPC along with other networking resources.
+   - Name Tag: `vega-twoge-VPC`
+   - IPv4 CIDR block: `10.0.0.0/16`
+   - Number of public subnets: 2
 
-### Steps:
+3. **Create Public Subnets**: Navigate to **Subnets > Create subnet**.
 
-1. **Navigate to S3 Dashboard**: Open the AWS Console and go to Services -> S3.
-2. **Create Bucket**: Click "Create bucket", then follow the wizard.
-3. **Upload Files**: Navigate to the newly created bucket -> "Upload" -> Drag and drop or use the "Add files" button to upload your static files.
+   - Name: `Twoge-PublicSubnet1`
+   - VPC: Choose `Twoge-VPC`
+   - CIDR block: `10.0.1.0/24`
 
-## Milestone 3: Create IAM Role
+   Repeat for the second public subnet (`Twoge-PublicSubnet2` and `10.0.2.0/24`).
 
-### Steps:
+### Host Static Files in S3
 
-1. **Navigate to IAM Dashboard**: Open the AWS Console and go to Services -> IAM.
-2. **Create Role**: Navigate to "Roles" -> "Create role" -> Choose "EC2" -> Attach the `AmazonS3ReadOnlyAccess` policy -> Review and "Create role".
+1. **Navigate to S3 Dashboard**: Open AWS Console and go to **Services > S3**.
+2. **Create Bucket**: Click **Create bucket**.
+   - Name: `twoge-static-files`
+   - Uncheck: `Block all public access`
 
-## Milestone 4: Launch EC2 Instance
+---
 
-### Steps:
+### Create IAM Role for S3
 
-1. **Navigate to EC2 Dashboard**: Open the AWS Console and go to Services -> EC2.
-2. **Launch Instance**: Click "Launch Instance" -> Choose "Amazon Linux 2 AMI" -> Select your instance type -> On "Configure Instance", select the IAM role you created -> Review and launch the instance.
+1. **Navigate to IAM Dashboard**: Open AWS Console and go to Services > IAM > Roles.
+2. **Create Role**: Click `Create role` > `EC2`.
+3. **Attach Policies**: Search for `AmazonS3FullAccess` and attach it.
+4. **Review and Create Role**: Give the role a name, like `Twoge-S3-Role`, and click `Create Role`.
 
-## Milestone 4A: Connect S3 Bucket to EC2
+### Host Static Files in S3 with IAM Policy
 
-### Steps:
+1. **Navigate to S3 Dashboard**: Open AWS Console and go to Services > S3.
+2. **Create Bucket**: Click `Create bucket`.
+   - **Name**: `vega-twoge-static-files`
+   - **Uncheck**: `Block all public access`
+3. **Bucket Policy**: Once the bucket is created, navigate to `Permissions` tab, and then click on `Bucket Policy`.
+   - Copy the JSON policy below and paste it into the editor.
 
-1. **SSH into EC2**: Use SSH to connect to your EC2 instance.
-2. **Install AWS CLI**: Run `sudo yum install aws-cli -y` on your Amazon Linux 2 instance.
-3. **Configure AWS CLI**: Run `aws configure`.
-4. **Sync S3 Bucket**: Run `aws s3 sync s3://your-s3-bucket-name your-destination-directory`.
-5. **Update Twoge Configuration**: Point the Twoge application to the directory where you've synced your S3 files.
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": ["s3:GetObject"],
+      "Resource": ["arn:aws:s3:::vega-twoge-static-files/*"]
+    }
+  ]
+}
+```
 
-## Milestone 5: Create Amazon ALB
+4. **Save Policy**: Click `Save`.
 
-### Steps:
+---
 
-1. **Navigate to EC2 Dashboard**: Open the AWS Console and go to Services -> EC2 -> Load Balancers.
-2. **Create Load Balancer**: Click "Create Load Balancer" -> Choose "Application Load Balancer" -> Name your ALB and choose your VPC and the public subnets -> Configure security settings -> Configure routing and create a new target group -> Register your EC2 instances -> Review and "Create".
+## Launch EC2 Instance with Amazon Linux 2 AMI and Twoge Configuration
 
-## Milestone 6: Create Amazon ASG
+1. **Access EC2 Dashboard**: Open AWS Console and go to **Services > EC2**.
+2. **Launch Instance**: Click **Launch Instance > Amazon Linux 2 AMI**.
+3. **Instance Type**: Select an instance type `t2.micro`.
+4. **IAM Role**: Select the IAM role created earlier for S3 (`Twoge-S3-Role`).
+5. **Security Group**: Configure to allow inbound HTTP/HTTPS and SSH traffic.
+6. **Review and Launch**: Review your configurations and click **Launch**.
 
-### Steps:
+### SSH into EC2 and Install Twoge
 
-1. **Navigate to EC2 Dashboard**: Open the AWS Console and go to Services -> EC2 -> Auto Scaling -> Auto Scaling Groups.
-2. **Create Auto Scaling Group**: Click "Create Auto Scaling group" -> Choose "Launch Configuration" or use an existing one -> Configure settings and attach to your VPC's subnets -> Under Load balancing, select your ALB -> "Create Auto Scaling group".
+1. **SSH Access**: To SSH into your instance, run:
 
-## Milestone 7: Use Amazon SNS
+   ```sh
+   ssh -i "YourKeyPair.pem" ec2-user@<Public-IP-Address>
+   ```
 
-### Steps:
+2. **Update Packages**:
 
-1. **Navigate to SNS Dashboard**: Open the AWS Console and go to Services -> SNS.
-2. **Create Topic**: Click "Create topic" -> Enter a name and display name -> "Create topic".
-3. **Create Subscription**: Click "Create subscription" -> Choose "Email" as the protocol and enter your email address.
-4. **Attach to ASG**: Go back to EC2
+   ```sh
+   sudo yum update -y
+   ```
 
--> Auto Scaling Groups -> select your ASG -> "Edit" -> Scroll down to "Notifications" -> "Add notification" -> Choose the SNS topic you created.
+3. **Twoge Setup**: Chandra's Twoge setup script, upload it to the EC2 instance using `scp` and run it:
 
-By following these milestones, you will set up a robust AWS infrastructure for the Twoge application. This setup ensures scalability, reliability, and fault-tolerance.
+   ```sh
+   chmod +x chandra-twoge-setup.sh
+   ./chandra-twoge-setup.sh
+   ```
+
+#### Installing Nginx
+
+After SSH access, install Nginx:
+
+```sh
+sudo yum update -y
+sudo amazon-linux-extras install nginx1.12 -y
+sudo systemctl start nginx
+sudo systemctl enable nginx
+```
+
+#### Nginx Configuration
+
+Open the Nginx configuration file:
+
+```sh
+sudo nano /etc/nginx/nginx.conf
+```
+
+Save and restart Nginx:
+
+```sh
+sudo systemctl restart nginx
+```
+
+### Create Amazon RDS for PostgreSQL
+
+1. **Navigate to RDS Dashboard**: Open the AWS Console and go to **Services > RDS**.
+2. **Create Database**: Click on **Create Database** and select **PostgreSQL** as your database engine.
+3. **Specifications**:
+   - Instance class: Select according to your needs.
+   - Multi-AZ Deployment: Enable for higher availability.
+   - Storage: Choose the type and size as needed.
+4. **Settings**:
+   - DB Instance Identifier: `twoge-database`
+   - Master Username: `[Your-Username]`
+   - Master Password: `[Your-Password]`
+5. **Connectivity**:
+   - VPC: Select the VPC you created earlier.
+   - Subnet Group: Create a new DB Subnet Group or select an existing one.
+   - Public Access: Choose according to your needs.
+6. **Database Options**:
+   - Initial DB name: `twoge_db`
+   - Port: `5432`
+7. **Backups and Monitoring**: Configure backup and monitoring settings according to your needs.
+8. **Launch Database**: Review your configurations and click **Create Database**.
+
+Your PostgreSQL database should now be ready for use. You can connect to it using the `psql` utility from your EC2 instance:
+
+```sh
+psql -h [DB-Endpoint] -U [Your-Username] -d [Database-Name]
+```
+
+Enter the password when prompted.
+
+### Twoge Daemon
+
+Create a systemd service file:
+
+```sh
+sudo nano /etc/systemd/system/twoge.service
+```
+
+Enable and start the service:
+
+```sh
+sudo systemctl enable twoge.service
+sudo systemctl start twoge.service
+```
+
+---
+
+## Create and Configure Amazon ALB
+
+1. **Navigate to ALB Dashboard**: Open AWS Console and go to **Services > EC2 > Load Balancers**.
+2. **Create ALB**: Click **Create Load Balancer > Application Load Balancer**.
+3. **Name and Scheme**: Provide a name and choose the scheme (typically `internet-facing`).
+4. **Listeners**: Keep the default HTTP listener.
+5. **Target Group**: Create a new target group and select your EC2 instance as the target.
+6. **Review and Create**: Confirm your settings and create the ALB.
+
+### Add Listener Rule
+
+1. **Listener Tab**: Go to the **Listeners** tab in your ALB dashboard.
+2. **Add Rule**: Click **Add rule > Forward to** and select your target group.
+
+---
+
+## Configure Amazon ASG with ALB
+
+1. **Navigate to ASG Dashboard**: Open AWS Console and go to **Services > EC2 > Auto Scaling Groups**.
+2. **Create ASG**: Click **Create Auto Scaling group**.
+3. **Launch Template**: Use the same configurations as your EC2 instance.
+4. **Attach to ALB**: In the advanced configurations, attach it to the ALB you created earlier.
+5. **Scaling Policy**: Set up a scaling policy based on CPU utilization or other metrics.
+6. **Create ASG**: Confirm your settings and create the ASG.
+
+---
+
+## Configure Amazon SNS for ASG Notifications
+
+1. **Navigate to SNS Dashboard**: Open AWS Console and go to **Services > SNS**.
+2. **Create Topic**: Click **Create topic** and provide a name.
+3. **Add Subscription**: Add a subscription with the protocol as `Email` and endpoint as your email address.
+4. **Attach to ASG**: Go back to your ASG settings, find the **Notifications** tab and attach the SNS topic.
+
+---
+
+## Appendix
+
+### Terminal Commands
+
+- **SSH into EC2 instance**
+
+  ```sh
+  ssh -i "YourKeyPair.pem" ec2-user@<Public-IP-Address>
+  ```
+
+- **Check Nginx status**
+
+  ```sh
+  sudo systemctl status nginx
+  ```
+
+- **Check Twoge application status**
+
+  ```sh
+  sudo systemctl status twoge.service
+  ```
+
+### JSON file of S3 bucket policy
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": ["s3:GetObject"],
+      "Resource": ["arn:aws:s3:::vega-twoge-static-files/*"]
+    }
+  ]
+}
+```
+
+### Nginx Configuration Sample
+
+```nginx
+server {
+    listen       80;
+    server_name  localhost;
+
+    location
+
+ / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+
+    location /static/ {
+        alias /path/to/static/files/;
+    }
+}
+```
+
+### Twoge Daemon Configuration
+
+```ini
+[Unit]
+Description=Twoge Daemon
+
+[Service]
+ExecStart=/path/to/twoge/app
+
+[Install]
+WantedBy=multi-user.target
+```
