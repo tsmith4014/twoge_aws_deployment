@@ -1,21 +1,13 @@
-## Adding RDS PostgreSQL Section
-
 # Comprehensive AWS Deployment Guide for Twoge Application
 
 This is a comprehensive guide for deploying the Twoge application on AWS. It's designed for users with minimal AWS and networking knowledge. You'll find instructions for setting up the entire infrastructure using the AWS Management Console, as well as terminal commands needed for server setup and software installation.
 
 ## Table of Contents
 
-- [Prerequisites](#prerequisites)
-- [AWS Services and Their Purpose](#aws-services-and-their-purpose)
 - [Step-by-Step Guide](#step-by-step-guide)
   - [Create Amazon VPC with Two Public subnets](#create-amazon-vpc-with-two-public-subnets)
-  - [Create IAM Role for S3](#create-iam-role-for-s3)
   - [Host Static Files in S3 with IAM Policy](#host-static-files-in-s3-with-iam-policy)
-  - [Launch EC2 Instance with Amazon Linux 2 AMI and Twoge Configuration](#launch-ec2-instance-with-amazon-linux-2-ami-and-twoge-configuration)
-    - [SSH into EC2 and Install Twoge](#ssh-into-ec2-and-install-twoge)
-    - [Installing Nginx](#installing-nginx)
-    - [Nginx Configuration](#nginx-configuration)
+  - [Step-By-Step Instruction Guide to Deploy Twoge on an EC2 instance](#step-by-step-instruction-guide-to-deploy-twoge-on-an-ec2-instance)
   - [Create Amazon RDS for PostgreSQL](#create-amazon-rds-for-postgresql)
   - [Twoge Daemon](#twoge-daemon)
   - [Create Amazon ALB](#create-amazon-alb)
@@ -46,13 +38,6 @@ This is a comprehensive guide for deploying the Twoge application on AWS. It's d
    - CIDR block: `10.0.1.0/24`
 
    Repeat for the second public subnet (`Twoge-PublicSubnet2` and `10.0.2.0/24`).
-
-### Host Static Files in S3
-
-1. **Navigate to S3 Dashboard**: Open AWS Console and go to **Services > S3**.
-2. **Create Bucket**: Click **Create bucket**.
-   - Name: `twoge-static-files`
-   - Uncheck: `Block all public access`
 
 ---
 
@@ -100,51 +85,108 @@ This is a comprehensive guide for deploying the Twoge application on AWS. It's d
 5. **Security Group**: Configure to allow inbound HTTP/HTTPS and SSH traffic.
 6. **Review and Launch**: Review your configurations and click **Launch**.
 
-### SSH into EC2 and Install Twoge
+## Step-By-Step Instruction Guide to Deploy Twoge on an EC2 instance
 
-1. **SSH Access**: To SSH into your instance, run:
+1. **SSH into EC2 instance**
 
-   ```sh
-   ssh -i "YourKeyPair.pem" ec2-user@<Public-IP-Address>
+   ```bash
+   ssh ec2-user@<Your_EC2_IP>
    ```
 
-2. **Update Packages**:
+2. **Update package manager**
 
-   ```sh
+   ```bash
    sudo yum update -y
    ```
 
-3. **Twoge Setup**: Chandra's Twoge setup script, upload it to the EC2 instance using `scp` and run it:
+3. **Install Git**
 
-   ```sh
-   chmod +x chandra-twoge-setup.sh
-   ./chandra-twoge-setup.sh
+   ```bash
+   sudo yum install git -y
    ```
 
-#### Installing Nginx
+4. **Clone the Twoge repository**
 
-After SSH access, install Nginx:
+   ```bash
+   git clone https://github.com/your-github/twoge/
+   ```
 
-```sh
-sudo yum update -y
-sudo amazon-linux-extras install nginx1.12 -y
-sudo systemctl start nginx
-sudo systemctl enable nginx
-```
+5. **Navigate to the cloned repository**
 
-#### Nginx Configuration
+   ```bash
+   cd twoge
+   ```
 
-Open the Nginx configuration file:
+6. **Install Python-Pip**
 
-```sh
-sudo nano /etc/nginx/nginx.conf
-```
+   ```bash
+   sudo yum install python-pip -y
+   ```
 
-Save and restart Nginx:
+7. **Activate the virtual environment**
 
-```sh
-sudo systemctl restart nginx
-```
+   ```bash
+   source venv/bin/activate
+   ```
+
+8. **Install Python dependencies**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+9. **Create a systemd service file**
+   Create a file called `twoge.service` and paste the following content:
+
+   ```
+   [Unit]
+   Description=Gunicorn instance to serve twoge
+   Wants=network.target
+   After=syslog.target network-online.target
+
+   [Service]
+   Type=simple
+   WorkingDirectory=/home/ec2-user/twoge
+   Environment="PATH=/home/ec2-user/twoge/venv/bin"
+   ExecStart=/home/ec2-user/twoge/venv/bin/gunicorn app:app -c /home/ec2-user/twoge/gunicorn_config.py
+   Restart=always
+   RestartSec=10
+
+   [Install]
+   WantedBy=multi-user.target
+   ```
+
+10. **Move the service file to the systemd directory**
+
+    ```bash
+    sudo cp twoge.service /etc/systemd/system
+    ```
+
+11. **Reload systemd daemon**
+
+    ```bash
+    sudo systemctl daemon-reload
+    ```
+
+12. **Enable the service**
+
+    ```bash
+    sudo systemctl enable twoge.service
+    ```
+
+13. **Start the service**
+
+    ```bash
+    sudo systemctl start twoge.service
+    ```
+
+14. **Check the service status**
+
+    ```bash
+    sudo systemctl status twoge.service
+    ```
+
+---
 
 ### Create Amazon RDS for PostgreSQL
 
