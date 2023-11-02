@@ -28,6 +28,7 @@ This README is your launchpad. Whether you’re a neophyte to cloud formations o
   - [Create Load Balancers](#create-load-balancers)
   - [Create an Auto Scaling Group](#create-an-auto-scaling-group)
   - [Create an ASG Dynamic Scaling Policy](#create-an-asg-dynamic-scaling-policy)
+  - [Stress Testing the System](#stress-testing-the-system)
   - [Appendix](#appendix)
 
 ---
@@ -481,6 +482,34 @@ To create a dynamic scaling policy for your ASG:
 
 ---
 
+## Stress Testing the System
+
+Before pushing your system to production, it's critical to ensure that it can handle high traffic loads. The following Python script applies stress to your CPU by utilizing maximum processing power, which helps in validating the auto-scaling features of your AWS setup.
+
+To execute the stress test, save the below script as `stress_test.py` on your EC2 instance:
+
+```python
+#!/usr/bin/env python
+"""
+Produces load on all available CPU cores
+"""
+
+from multiprocessing import Pool
+from multiprocessing import cpu_count
+
+def f(x):
+    while True:
+        x * x
+
+if __name__ == '__main__':
+    processes = cpu_count()
+    print(f'Utilizing {processes} cores\n')
+    pool = Pool(processes)
+    pool.map(f, range(processes))
+ ```
+
+---
+
 ## Appendix
 
 ### JSON file of S3 bucket policy
@@ -603,3 +632,10 @@ This command lists all objects in the specified bucket, shows the size of each o
 This track is used under the terms of the CC0/Public Domain. While no attribution is legally required, credit is given to the artist for their work. It is recommended to verify the status of both the composition and the recording, especially for commercial use, as Public Domain laws may vary by country.
 
 ---
+
+
+
+
+
+
+
