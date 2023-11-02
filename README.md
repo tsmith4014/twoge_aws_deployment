@@ -7,21 +7,20 @@ This is a comprehensive guide for deploying the Twoge application on AWS. It's d
 ## Table of Contents
 
 - [Step-by-Step Guide](#step-by-step-guide)
+
   - [Create Amazon VPC with Two Public subnets](#create-amazon-vpc-with-two-public-subnets)
+  - [Create IAM Role for S3](#create-iam-role-for-s3)
   - [Host Static Files in S3 with IAM Policy](#host-static-files-in-s3-with-iam-policy)
+  - [Launch EC2 Instance with Amazon Linux 2 AMI AWS RDS and Twoge Configuration](#launch-ec2-instance-with-amazon-linux-2-ami-aws-rds-and-twoge-configuration)
+  - [Deploying RDS with PostgreSQL](#deploying-rds-with-postgresql)
   - [Step-By-Step Instruction Guide to Deploy Twoge on an EC2 instance](#step-by-step-instruction-guide-to-deploy-twoge-on-an-ec2-instance)
-  - [Create Amazon RDS for PostgreSQL](#create-amazon-rds-for-postgresql)
-  - [Twoge Daemon](#twoge-daemon)
-  - [Create Amazon ALB](#create-amazon-alb)
-  - [Configure Amazon ASG with ALB](#configure-amazon-asg-with-alb)
-  - [Configure Amazon SNS for ASG Notifications](#configure-amazon-sns-for-asg-notifications)
-  - [Setup Nginx for Reverse Proxy](#setup-nginx-for-reverse-proxy)
-  - [Static Content Hosting with ELB and S3](#static-content-hosting-with-elb-and-s3)
-- [Appendix](#appendix)
-  - [Terminal Commands](#terminal-commands)
-  - [JSON file of S3 bucket policy](#json-file-of-s3-bucket-policy)
-  - [Twoge Daemon Configuration](#twoge-daemon-configuration)
-  - [Nginx Configuration Sample](#nginx-configuration-sample)
+  - [Create an Image of the Instance](#create-an-image-of-the-instance)
+  - [Create a Launch Template Using the Image Created](#create-a-launch-template-using-the-image-created)
+  - [Creating a Target Group](#creating-a-target-group)
+  - [Create Load Balancers](#create-load-balancers)
+  - [Create an Auto Scaling Group](#create-an-auto-scaling-group)
+  - [Create an ASG Dynamic Scaling Policy](#create-an-asg-dynamic-scaling-policy)
+  - [Appendix](#appendix)
 
 ---
 
@@ -104,7 +103,7 @@ aws s3 ls s3://vega-twoge-static-files --recursive --human-readable --summarize
 
 ---
 
-## Launch EC2 Instance with Amazon Linux 2 AMI , AWS RDS and Twoge Configuration
+## Launch EC2 Instance with Amazon Linux 2 AMI AWS RDS and Twoge Configuration
 
 1. **Access EC2 Dashboard**: Open AWS Console and go to **Services > EC2**.
 2. **Launch Instance**: Click **Launch Instance > Amazon Linux 2 AMI**.
@@ -324,11 +323,11 @@ After setting up the inbound rules, your RDS instance should be ready to connect
     ```nginx
     server {
        listen 80;
-       server_name *;  # It's recommended to use underscore as a catch-all
+       server_name *;  # underscore as a catch-all
 
        location / {
           include proxy_params;
-          proxy_pass http://twoge-lb-1073512007.us-east-2.elb.amazonaws.com;
+          proxy_pass twoge-app-load-balancer-1298083779.eu-west-2.elb.amazonaws.com;
        }
     }
 
@@ -378,6 +377,8 @@ To create an image of your EC2 instance:
 4. Leave all other settings as default.
 5. Click **Create Image**.
 
+---
+
 ## Create a Launch Template Using the Image Created
 
 To create a launch template:
@@ -393,6 +394,8 @@ To create a launch template:
 9. For **Firewall/Security group**, select the existing security group associated with your EC2 instance.
 10. Under **Advanced details**, set the **IAM instance profile** to the role that allows EC2 access to the S3 bucket.
 11. Click to create the launch template.
+
+---
 
 ## Creating a Target Group
 
@@ -412,7 +415,7 @@ To set up a target group for your instances:
 
 ---
 
-# Create Load Balancers
+## Create Load Balancers
 
 To set up an Application Load Balancer:
 
@@ -425,7 +428,7 @@ To set up an Application Load Balancer:
 7. In **Listeners and routing**, select the target group you previously created.
 8. Click **Create Load Balancer**.
 
-# Create an Auto Scaling Group (ASG)
+## Create an Auto Scaling Group
 
 To create an Auto Scaling Group:
 
@@ -440,7 +443,7 @@ To create an Auto Scaling Group:
 9. Select event types for notifications (`Launch`, `Terminate`) and confirm subscriptions.
 10. Proceed through the next steps until you reach **Create ASG** and finalize the creation.
 
-# Create an ASG Dynamic Scaling Policy
+## Create an ASG Dynamic Scaling Policy
 
 To create a dynamic scaling policy for your ASG:
 
@@ -450,7 +453,7 @@ To create a dynamic scaling policy for your ASG:
 4. Name your policy and create a new CloudWatch alarm.
 5. For the metric, navigate to EC2 > By ASG and select your ASG.
 6. Choose the metric `CPUUtilization`.
-7. Set the metric condition to trigger at a specific threshold of CPU utilization.
+7. Set the metric condition to trigger at a specific threshold of CPU utilization (I set it at 50%).
 8. Create a notification topic with your email and set the alarm name.
 9. Once the CloudWatch alarm is created, return to the Dynamic Scaling Policy setup.
 10. Refresh the CloudWatch Alarm list, select your new alarm, and define the scaling action (e.g., add `1` capacity unit).
@@ -459,152 +462,7 @@ To create a dynamic scaling policy for your ASG:
 
 ---
 
-## Create and Configure Amazon ALB
-
-1. **Navigate to ALB Dashboard**: Open AWS Console and go to **Services > EC2 > Load Balancers**.
-2. **Create ALB**: Click **Create Load Balancer > Application Load Balancer**.
-3. **Name and Scheme**: Provide a name and choose the scheme (typically `internet-facing`).
-4. **Listeners**: Keep the default HTTP listener.
-5. **Target Group**: Create a new target group and select your EC2 instance as the target.
-6. **Review and Create**: Confirm your settings and create the ALB.
-
-### Add Listener Rule
-
-1. **Listener Tab**: Go to the **Listeners** tab in your ALB dashboard.
-2. **Add Rule**: Click **Add rule > Forward to** and select your target group.
-
----
-
-## Configure Amazon ASG with ALB
-
-1. **Navigate to ASG Dashboard**: Open AWS Console and go to **Services > EC2 > Auto Scaling Groups**.
-2. **Create ASG**: Click **Create Auto Scaling group**.
-3. **Launch Template**: Use the same configurations as your EC2 instance.
-4. **Attach to ALB**: In the advanced configurations, attach it to the ALB you created earlier.
-5. **Scaling Policy**: Set up a scaling policy based on CPU utilization or other metrics.
-6. **Create ASG**: Confirm your settings and create the ASG.
-
----
-
-## Configure Amazon SNS for ASG Notifications
-
-1. **Navigate to SNS Dashboard**: Open AWS Console and go to **Services > SNS**.
-2. **Create Topic**: Click **Create topic** and provide a name.
-3. **Add Subscription**: Add a subscription with the protocol as `Email` and endpoint as your email address.
-4. **Attach to ASG**: Go back to your ASG settings, find the **Notifications** tab and attach the SNS topic.
-
----
-
-### Setup Nginx for Reverse Proxy
-
-1. **SSH into your EC2 instance**
-
-   ```bash
-   ssh ec2-user@<Your_EC2_IP>
-   ```
-
-2. **Install Nginx**
-
-   ```bash
-   sudo amazon-linux-extras install nginx1 -y
-   ```
-
-3. **Start Nginx**
-
-   ```bash
-   sudo systemctl start nginx
-   ```
-
-4. **Enable Nginx to start at boot**
-
-   ```bash
-   sudo systemctl enable nginx
-   ```
-
-5. **Open Nginx configuration file**
-
-   ```bash
-   sudo nano /etc/nginx/nginx.conf
-   ```
-
-6. **Modify Nginx configuration**
-
-   Edit the `location / {}` block as follows:
-
-```nginx
-server {
-   listen 80;
-   server_name *;  # It's recommended to use underscore as a catch-all
-
-   location / {
-       include proxy_params;
-       proxy_pass http://twoge-lb-1073512007.us-east-2.elb.amazonaws.com;
-   }
-}
-```
-
-7. **Restart Nginx to apply changes**
-
-   ```bash
-   sudo systemctl restart nginx
-   ```
-
----
-
-### Static Content Hosting with ELB and S3
-
-1. **Navigate to S3 Dashboard**: Open AWS Console and go to **Services > S3**.
-2. **Create a new bucket for static content**:
-
-   - **Name**: `twoge-static-content`
-   - **Uncheck**: `Block all public access`
-
-3. **Bucket Policy**: Attach a policy to make the bucket's content publicly readable.
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "PublicReadForGetBucketObjects",
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::twoge-static-content/*"
-    }
-  ]
-}
-```
-
-4. **Navigate to ALB Dashboard**: Go to **Services > EC2 > Load Balancers**.
-5. **Modify Listener Rules**: Add a new rule to route requests for static content to the S3 bucket.
-
-   - **Conditions**: If `Path` is `/static/*`
-   - **Actions**: Forward to `twoge-static-content`
-
----
-
 ## Appendix
-
-### Terminal Commands
-
-- **SSH into EC2 instance**
-
-  ```sh
-  ssh -i "YourKeyPair.pem" ec2-user@<Public-IP-Address>
-  ```
-
-- **Check Nginx status**
-
-  ```sh
-  sudo systemctl status nginx
-  ```
-
-- **Check Twoge application status**
-
-  ```sh
-  sudo systemctl status twoge.service
-  ```
 
 ### JSON file of S3 bucket policy
 
@@ -613,19 +471,28 @@ server {
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "PublicReadGetObject",
+      "Sid": "AllowEC2Instance",
       "Effect": "Allow",
-      "Principal": "*",
-      "Action": ["s3:GetObject"],
-      "Resource": ["arn:aws:s3:::vega-twoge-static-files/*"]
+      "Principal": {
+        "Service": "ec2.amazonaws.com"
+      },
+      "Action": ["s3:GetObject", "s3:GetObjectVersion"],
+      "Resource": "arn:aws:s3:::vega-twoge-static-files/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:userid": "arn:aws:iam::182403015120:role/ec2-static-s3-access"
+        }
+      }
     }
   ]
 }
 ```
 
+---
+
 ### Twoge Daemon Configuration
 
-```
+```.md
 [Unit]
 Description=Gunicorn instance to serve twoge
 Wants=network.target
@@ -643,9 +510,7 @@ RestartSec=10
 WantedBy=multi-user.target
 ```
 
-cd /etc/nginx
-
-### Nginx Configuration Sample
+### Nginx Configuration Sample with static content hosting(did not implement)
 
 ```nginx
 server {
@@ -654,7 +519,7 @@ server {
 
     location / {
         include proxy_params;
-        proxy_pass http://twoge-lb-1073512007.us-east-2.elb.amazonaws.com;
+        proxy_pass http://twoge-app-load-balancer-1298083779.eu-west-2.elb.amazonaws.com;
     }
 
     location /static/ {
@@ -666,22 +531,9 @@ server {
 
 ---
 
-## Background Music Credits
-
-### Stay Quiet
-
-- **Artist**: Monplaisir
-- **License**: CC0/Public Domain
-- **Source**: [Free Music Archive](https://freemusicarchive.org)
-
-This track is used under the terms of the CC0/Public Domain. While no attribution is legally required, credit is given to the artist for their work. It is recommended to verify the status of both the composition and the recording, especially for commercial use, as Public Domain laws may vary by country.
-
----
+## AWS CLI Setup and S3 Bucket Access
 
 To list the contents of an S3 bucket via the AWS CLI, you'll need to have the AWS CLI installed and configured with the necessary access credentials. Below is a Markdown-formatted README section that includes the instructions for installing the AWS CLI, configuring it, and listing the contents of an S3 bucket.
-
-````markdown
-## AWS CLI Setup and S3 Bucket Access
 
 This section provides a guide on how to install the AWS CLI, configure it, and list the contents of an S3 bucket.
 
@@ -696,11 +548,6 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
 unzip awscliv2.zip
 sudo ./aws/install
 ```
-````
-
-#### For Windows:
-
-Download and run the [AWS CLI MSI installer for Windows](https://awscli.amazonaws.com/AWSCLIV2.msi).
 
 ### Configuring the AWS CLI
 
@@ -724,14 +571,16 @@ Replace `your-bucket-name` with the actual name of your S3 bucket.
 
 This command lists all objects in the specified bucket, shows the size of each object in a human-readable format, and provides a summary at the end.
 
-### Additional Notes
+---
 
-- Ensure that your IAM user has the necessary permissions to list the contents of the S3 bucket.
-- If you encounter permission issues, you may need to contact your AWS administrator to adjust your IAM policies.
+## Background Music Credits
 
-```
+### Stay Quiet
 
-Make sure to replace `your-bucket-name` with the actual bucket name you wish to list. The `--recursive` flag lists all files, the `--human-readable` flag shows file sizes in a human-readable format, and the `--summarize` flag gives a summary at the end of the command's output.
+- **Artist**: Monplaisir
+- **License**: CC0/Public Domain
+- **Source**: [Free Music Archive](https://freemusicarchive.org)
 
-Remember that the user whose credentials are being used must have the necessary permissions to list the contents of the S3 bucket.
-```
+This track is used under the terms of the CC0/Public Domain. While no attribution is legally required, credit is given to the artist for their work. It is recommended to verify the status of both the composition and the recording, especially for commercial use, as Public Domain laws may vary by country.
+
+---
