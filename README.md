@@ -52,7 +52,9 @@ This is a comprehensive guide for deploying the Twoge application on AWS. It's d
 1. **Navigate to IAM Dashboard**: Open AWS Console and go to Services > IAM > Roles.
 2. **Create Role**: Click `Create role` > `EC2`.
 3. **Attach Policies**: Search for `AmazonS3FullAccess` and attach it.
-4. **Review and Create Role**: Give the role a name, like `Twoge-S3-Role`, and click `Create Role`.
+4. **Review and Create Role**: Give the role a name,`ec2-twoge-s3`, and click `Create Role`.
+
+---
 
 ### Host Static Files in S3 with IAM Policy
 
@@ -60,36 +62,143 @@ This is a comprehensive guide for deploying the Twoge application on AWS. It's d
 2. **Create Bucket**: Click `Create bucket`.
    - **Name**: `vega-twoge-static-files`
    - **Uncheck**: `Block all public access`
+   - **General Settings**: `ACLs disabled, bucket versionalizing disabled, default encryption disabled`
 3. **Bucket Policy**: Once the bucket is created, navigate to `Permissions` tab, and then click on `Bucket Policy`.
    - Copy the JSON policy below and paste it into the editor.
 
 ```json
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "PublicReadGetObject",
-      "Effect": "Allow",
-      "Principal": "*",
-      "Action": ["s3:GetObject"],
-      "Resource": ["arn:aws:s3:::vega-twoge-static-files/*"]
-    }
-  ]
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowEC2Instance",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "ec2.amazonaws.com"
+            },
+            "Action": [
+                "s3:GetObject",
+                "s3:GetObjectVersion"
+            ],
+            "Resource": "arn:aws:s3:::vega-twoge-static-files/*",
+            "Condition": {
+                "StringEquals": {
+                    "aws:userid": "arn:aws:iam::182403015120:role/ec2-static-s3-access"
+                }
+            }
+        }
+    ]
 }
 ```
 
 4. **Save Policy**: Click `Save`.
 
+5. **Upload Static Files**: Upload the static files to the bucket.
+
+6. **To list the contents of an S3 bucket**, use the `s3 ls` command and verify that the files are present and premission is granted (this must be done from the EC2 instance with the IAM role attached)):
+
+```sh
+aws s3 ls s3://vega-twoge-static-files --recursive --human-readable --summarize
+```
+
 ---
 
-## Launch EC2 Instance with Amazon Linux 2 AMI and Twoge Configuration
+## Launch EC2 Instance with Amazon Linux 2 AMI , AWS RDS and Twoge Configuration
 
 1. **Access EC2 Dashboard**: Open AWS Console and go to **Services > EC2**.
 2. **Launch Instance**: Click **Launch Instance > Amazon Linux 2 AMI**.
-3. **Instance Type**: Select an instance type `t2.micro`.
-4. **IAM Role**: Select the IAM role created earlier for S3 (`Twoge-S3-Role`).
-5. **Security Group**: Configure to allow inbound HTTP/HTTPS and SSH traffic.
+3. **Instance Type**: Give a name, select your key pair, and select an instance type `t2.micro`.
+4. **IAM Role**: Select the IAM role created earlier for S3 (`ec2-twoge-s3`).
+5. **Security Group**: Configure to allow inbound HTTP/HTTPS and SSH traffic, enabled Auto-assign ip.
 6. **Review and Launch**: Review your configurations and click **Launch**.
+
+---
+
+## Deploying RDS with PostgreSQL
+
+This guide walks you through the process of deploying an Amazon RDS instance using PostgreSQL.
+
+### Step 1: Create Database
+
+1. Go to the AWS Management Console.
+2. In the **Search Bar**, type `RDS` and select the RDS service.
+3. Click **Create database**.
+
+### Step 2: Database Configuration
+
+1. Choose **Standard create**.
+2. For **Engine type**, select `PostgreSQL`.
+3. For **Engine Version**, choose `15.3-r2`.
+4. Under **Templates**, select `Free tier`.
+
+### Step 3: Settings
+
+1. Under **Settings**:
+   - **DB instance identifier**: Create and enter the name of your database.
+   - **Master username**: It's recommended to change the username.
+   - **Master Password**: Enter a personal password and confirm it.
+
+### Step 4: Instance Configuration
+
+- Choose `db.t3.micro` for **Instance configuration**.
+
+### Step 5: Storage
+
+- Leave the default values for **Storage**.
+- For **Storage autoscaling**, deselect `Enable Storage autoscaling`.
+
+### Step 6: Connectivity
+
+1. Under **Connectivity**:
+   - Choose `Don't connect to an EC2 compute resource`.
+   - Select `IPv4`.
+   - For **Virtual private cloud**, choose the same VPC selected for your EC2.
+   - Leave **DB subnet group** as default.
+   - Set **Public Access** to `Yes`.
+   - For **VPC security group**, create a new one.
+   - Enter a name for your new VPC security group under **New Vpc security group name**.
+
+### Step 7: Additional Configurations
+
+1. Set the **Database port** to `5432`.
+2. Under **Database authentication**, select `Password authentication`.
+
+### Step 8: Monitoring
+
+- Leave all values under **Monitoring** as default.
+
+### Step 9: Additional Configuration
+
+1. Under **Additional configuration**:
+   - For **Initial database name**, enter the database name associated with your Flask app.
+
+### Step 10: Create Database
+
+- Click **Create Database**. Keep in mind that the initialization of the database will take about 5-10 minutes.
+
+### Step 11: Post-Creation Setup
+
+1. Once the database is created, select it to navigate to the **Connectivity & security** tab.
+2. Select the **VPC Security groups**.
+3. Click on the security group you created for your database.
+4. Click **Edit inbound rules**.
+
+### Step 12: Edit Inbound Rules
+
+Your inbound rules should look like this:
+
+- **Type**: `PostgreSQL`
+- **Protocol**: `TCP`
+- **Port Range**: `5432`
+- **Source**: `Custom`
+- **Destination**: Enter the security group of your EC2 instance previously created.
+
+### Conclusion
+
+After setting up the inbound rules, your RDS instance should be ready to connect to your application. Ensure that your EC2 instance's security group allows inbound traffic on port `5432` from the RDS security group.
+
+---
 
 ## Step-By-Step Instruction Guide to Deploy Twoge on an EC2 instance
 
@@ -105,16 +214,17 @@ This is a comprehensive guide for deploying the Twoge application on AWS. It's d
    sudo yum update -y
    ```
 
-3. **Install Git**
+3. **Install Git & Amazon-Extras**
 
    ```bash
    sudo yum install git -y
+   sudo amazon-linux-extras install nginx1 -y
    ```
 
 4. **Clone the Twoge repository**
 
    ```bash
-   git clone https://github.com/your-github/twoge/
+   git clone https://github.com/chandradeoarya/twoge
    ```
 
 5. **Navigate to the cloned repository**
@@ -126,13 +236,17 @@ This is a comprehensive guide for deploying the Twoge application on AWS. It's d
 6. **Install Python-Pip**
 
    ```bash
-   sudo yum install python-pip -y
+   sudo yum install python3-pip -y
    ```
 
-7. **Activate the virtual environment**
+7. **Create & Activate the virtual environment**
 
    ```bash
-   source venv/bin/activate
+      python3 -m venv venv
+   ```
+
+   ```bash
+      source venv/bin/activate
    ```
 
 8. **Install Python dependencies**
@@ -141,88 +255,62 @@ This is a comprehensive guide for deploying the Twoge application on AWS. It's d
    pip install -r requirements.txt
    ```
 
-9. **Create a systemd service file**
-   Create a file called `twoge.service` and paste the following content:
+9. **create .env for psql access**
 
-   ```
-   [Unit]
-   Description=Gunicorn instance to serve twoge
-   Wants=network.target
-   After=syslog.target network-online.target
-
-   [Service]
-   Type=simple
-   WorkingDirectory=/home/ec2-user/twoge
-   Environment="PATH=/home/ec2-user/twoge/venv/bin"
-   ExecStart=/home/ec2-user/twoge/venv/bin/gunicorn app:app -c /home/ec2-user/twoge/gunicorn_config.py
-   Restart=always
-   RestartSec=10
-
-   [Install]
-   WantedBy=multi-user.target
+   ```bash
+   echo 'SQLALCHEMY_DATABASE_URI = "postgresql://username:password@aws-database/database-name"' > .env
    ```
 
-10. **Move the service file to the systemd directory**
+10. **Create a systemd service file**
+    Create a file called `twoge.service` and paste the following content:
 
-    ```bash
-    sudo cp twoge.service /etc/systemd/system
+    ```
+    [Unit]
+    Description=Gunicorn instance to serve twoge
+    Wants=network.target
+    After=syslog.target network-online.target
+
+    [Service]
+    Type=simple
+    WorkingDirectory=/home/ec2-user/twoge
+    Environment="PATH=/home/ec2-user/twoge/venv/bin"
+    ExecStart=/home/ec2-user/twoge/venv/bin/gunicorn app:app -c /home/ec2-user/twoge/gunicorn_config.py
+    Restart=always
+    RestartSec=10
+
+    [Install]
+       WantedBy=multi-user.target
     ```
 
-11. **Reload systemd daemon**
+11. **Move the service file to the systemd directory**
+
+    ```bash
+    sudo cp twoge.service /etc/systemd/system/twoge.service
+    ```
+
+12. **Reload systemd daemon**
 
     ```bash
     sudo systemctl daemon-reload
     ```
 
-12. **Enable the service**
+13. **Enable the service**
 
     ```bash
     sudo systemctl enable twoge.service
     ```
 
-13. **Start the service**
+14. **Start the service**
 
     ```bash
     sudo systemctl start twoge.service
     ```
 
-14. **Check the service status**
+15. **Check the service status**
 
     ```bash
     sudo systemctl status twoge.service
     ```
-
----
-
-### Create Amazon RDS for PostgreSQL
-
-1. **Navigate to RDS Dashboard**: Open the AWS Console and go to **Services > RDS**.
-2. **Create Database**: Click on **Create Database** and select **PostgreSQL** as your database engine.
-3. **Specifications**:
-   - Instance class: Select according to your needs.
-   - Multi-AZ Deployment: Enable for higher availability.
-   - Storage: Choose the type and size as needed.
-4. **Settings**:
-   - DB Instance Identifier: `twoge-database`
-   - Master Username: `[Your-Username]`
-   - Master Password: `[Your-Password]`
-5. **Connectivity**:
-   - VPC: Select the VPC you created earlier.
-   - Subnet Group: Create a new DB Subnet Group or select an existing one.
-   - Public Access: Choose according to your needs.
-6. **Database Options**:
-   - Initial DB name: `twoge_db`
-   - Port: `5432`
-7. **Backups and Monitoring**: Configure backup and monitoring settings according to your needs.
-8. **Launch Database**: Review your configurations and click **Create Database**.
-
-Your PostgreSQL database should now be ready for use. You can connect to it using the `psql` utility from your EC2 instance:
-
-```sh
-psql -h [DB-Endpoint] -U [Your-Username] -d [Database-Name]
-```
-
-Enter the password when prompted.
 
 ---
 
@@ -449,3 +537,61 @@ server {
 This track is used under the terms of the CC0/Public Domain. While no attribution is legally required, credit is given to the artist for their work. It is recommended to verify the status of both the composition and the recording, especially for commercial use, as Public Domain laws may vary by country.
 
 ---
+
+To list the contents of an S3 bucket via the AWS CLI, you'll need to have the AWS CLI installed and configured with the necessary access credentials. Below is a Markdown-formatted README section that includes the instructions for installing the AWS CLI, configuring it, and listing the contents of an S3 bucket.
+
+````markdown
+## AWS CLI Setup and S3 Bucket Access
+
+This section provides a guide on how to install the AWS CLI, configure it, and list the contents of an S3 bucket.
+
+### Installing the AWS CLI
+
+To interact with AWS services directly from your terminal, you need to install the AWS Command Line Interface (CLI). Follow the instructions for your operating system:
+
+#### For macOS and Linux:
+
+```sh
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
+````
+
+#### For Windows:
+
+Download and run the [AWS CLI MSI installer for Windows](https://awscli.amazonaws.com/AWSCLIV2.msi).
+
+### Configuring the AWS CLI
+
+Before using the AWS CLI, you need to configure your AWS credentials. You can do this by running:
+
+```sh
+aws configure
+```
+
+You will be prompted to enter your `AWS Access Key ID`, `AWS Secret Access Key`, and the `region` you're working in. Optionally, you can also set the output format (e.g., `json`, `text`, or `table`).
+
+### Listing Contents of an S3 Bucket
+
+To list the contents of an S3 bucket, use the `s3 ls` command:
+
+```sh
+aws s3 ls s3://your-bucket-name --recursive --human-readable --summarize
+```
+
+Replace `your-bucket-name` with the actual name of your S3 bucket.
+
+This command lists all objects in the specified bucket, shows the size of each object in a human-readable format, and provides a summary at the end.
+
+### Additional Notes
+
+- Ensure that your IAM user has the necessary permissions to list the contents of the S3 bucket.
+- If you encounter permission issues, you may need to contact your AWS administrator to adjust your IAM policies.
+
+```
+
+Make sure to replace `your-bucket-name` with the actual bucket name you wish to list. The `--recursive` flag lists all files, the `--human-readable` flag shows file sizes in a human-readable format, and the `--summarize` flag gives a summary at the end of the command's output.
+
+Remember that the user whose credentials are being used must have the necessary permissions to list the contents of the S3 bucket.
+```
