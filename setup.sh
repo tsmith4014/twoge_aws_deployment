@@ -8,7 +8,7 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 
-echo 'SQLALCHEMY_DATABASE_URI = "postgresql://postgres:Alpha2023@twoge-database.cwxdszkufvxd.eu-west-2.rds.amazonaws.com/twoge-database"' > .env
+echo 'SQLALCHEMY_DATABASE_URI = "postgresql://username:pw@region/databasename"' > .env
 
 echo '
 Description=Gunicorn instance to serve twoge
