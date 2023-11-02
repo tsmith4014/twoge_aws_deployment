@@ -168,7 +168,7 @@
                 <tspan x="0" y="15">Subnet-a</tspan>
             </text>
         </g>
-        <!-- sec group -->
+        <!-- sec -->
         <polygon id="nat1" stroke="#000000" stroke-width="1.18829982" fill="#FFFFFF" fill-rule="nonzero" points="279.815356 385.996344 246.542962 446.599634 313.087751 446.599634"></polygon>
         <!-- Network ACL -->
         <g id="Network-ACL" transform="translate(267.7441, 413.6453)" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="7.1297989" font-weight="normal">
@@ -296,156 +296,158 @@
 
 
                         <!-- Group 1 -->
-                    <g id="stickfolksgroup" transform="translate(786.8117, 21.8117)" fill-rule="nonzero">
-                <circle fill="#FFFFFF" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
-                <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-                <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-                <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-                <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
-                <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
-                </line>
-                <circle fill="#FFFFFF" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
-                <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-                <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-                <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-                <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#FFFFFF"></polygon>
-                <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
-                <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
-                </line>
-            </g>
-
-                    <!-- Group 2 -->
-            <g id="stickfolksgroup" transform="translate(550.8117, 21.8117)" fill-rule="nonzero">
-                <!-- Male -->
-                <circle fill="#FFFFFF" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
-                <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-                <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-                <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-                <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
-                <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
-                </line>
-                <!-- Female -->
-                <circle fill="#FFFFFF" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
-                <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-                <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-                <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-                <polygon points="59.4149909 35.6489945 83.1809872 35.6489945 71.297989 71.297989" fill="#FFFFFF"></polygon>
-                <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
-                <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
-                </line>
-            </g>
-                            <!-- Group 3 -->
-                <g id="stickfolksgroup" transform="translate(314.8117, 21.8117)" fill-rule="nonzero">
-                    <!-- Male -->
-                    <circle fill="#FFFFFF" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
-                    <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-                    <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-                    <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-                    <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
-                    <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
-                    </line>
-                    <!-- Female -->
-                    <circle fill="#FFFFFF" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
-                    <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-                    <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-                    <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-                    <polygon points="59.4149909 35.6489945 83.1809872 35.6489945 71.297989 71.297989" fill="#FFFFFF"></polygon>
-                    <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
-                    <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
-                    </line>
-                </g>
-            <!-- Group 4 -->
-<g id="stickfolksgroup" transform="translate(189.8117, 21.8117)" fill-rule="nonzero">
-    <circle fill="#FFFFFF" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
-    <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-    <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-    <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-    <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+  <g id="stickfolksgroup1" transform="translate(786.8117, 21.8117)" fill-rule="nonzero">
+    <circle fill="#FFDBAC" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFDBAC" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFDBAC" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFDBAC" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFDBAC" stroke-width="1.18829982">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <circle fill="#F1C27D" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#F1C27D" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#F1C27D" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#F1C27D" stroke-width="1.18829982"></line>
+    <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#F1C27D"></polygon>
+    <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#F1C27D" stroke-width="1.18829982">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  <!-- Group 2 -->
+  <g id="stickfolksgroup2" transform="translate(550.8117, 21.8117)" fill-rule="nonzero">
+    <!-- Male -->
+    <circle fill="#8D5524" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#8D5524" stroke-width="1.18829982">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <!-- Female -->
+    <circle fill="#FFDBAC" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFDBAC" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFDBAC" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFDBAC" stroke-width="1.18829982"></line>
+    <polygon points="59.4149909 35.6489945 83.1809872 35.6489945 71.297989 71.297989" fill="#FFDBAC"></polygon>
+    <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFDBAC" stroke-width="1.18829982">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
+    </line>
+  </g>
+                           <!-- Group 3 -->
+<g id="stickfolksgroup3" transform="translate(314.8117, 21.8117)" fill-rule="nonzero">
+    <!-- Male -->
+    <circle fill="#F1C27D" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#F1C27D" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#F1C27D" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#F1C27D" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#F1C27D" stroke-width="1.18829982">
         <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
     </line>
-    <circle fill="#FFFFFF" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
-    <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-    <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-    <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-    <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#FFFFFF"></polygon>
-    <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+    <!-- Female -->
+    <circle fill="#8D5524" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <polygon points="59.4149909 35.6489945 83.1809872 35.6489945 71.297989 71.297989" fill="#8D5524"></polygon>
+    <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#8D5524" stroke-width="1.18829982">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
+    </line>
+</g>
+
+<!-- Group 4 -->
+<g id="stickfolksgroup4" transform="translate(189.8117, 21.8117)" fill-rule="nonzero">
+    <circle fill="#FFDBAC" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFDBAC" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFDBAC" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFDBAC" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFDBAC" stroke-width="1.18829982">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <circle fill="#F1C27D" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#F1C27D" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#F1C27D" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#F1C27D" stroke-width="1.18829982"></line>
+    <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#F1C27D"></polygon>
+    <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#F1C27D" stroke-width="1.18829982">
         <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
     </line>
 </g>
 
 <!-- Group 5 -->
-<g id="stickfolksgroup" transform="translate(1070.8117, 821.8117)" fill-rule="nonzero">
-    <circle fill="#FFFFFF" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
-    <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-    <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-    <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-    <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+<g id="stickfolksgroup5" transform="translate(1070.8117, 821.8117)" fill-rule="nonzero">
+    <circle fill="#8D5524" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#8D5524" stroke-width="1.18829982">
         <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
     </line>
-    <circle fill="#FFFFFF" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
-    <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-    <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-    <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-    <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#FFFFFF"></polygon>
-    <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+    <circle fill="#FFDBAC" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFDBAC" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFDBAC" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFDBAC" stroke-width="1.18829982"></line>
+    <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#FFDBAC"></polygon>
+    <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFDBAC" stroke-width="1.18829982">
         <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
     </line>
 </g>
 
-            <!-- Group 6 -->
-    <g id="stickfolksgroup" transform="translate(266.8117, 850.8117)" fill-rule="nonzero">
-        <circle fill="#FFFFFF" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
-        <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-        <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-        <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-        <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
-            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
-        </line>
-        <circle fill="#FFFFFF" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
-        <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-        <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-        <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-        <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#FFFFFF"></polygon>
-        <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
-            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
-        </line>
-    </g>
-          <!-- Group 7 -->
-    <g id="stickfolksgroup" transform="translate(91.8117, 786.8117)" fill-rule="nonzero">
-        <circle fill="#FFFFFF" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
-        <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-        <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-        <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-        <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
-            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
-        </line>
-        <circle fill="#FFFFFF" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
-        <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-        <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-        <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-        <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#FFFFFF"></polygon>
-        <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
-            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
-        </line>
-    </g>
-        <!-- Group 8 -->
-    <g id="stickfolksgroup" transform="translate(726.8117, 806.8117)" fill-rule="nonzero">
-        <circle fill="#FFFFFF" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
-        <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-        <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-        <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-        <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
-            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
-        </line>
-        <circle fill="#FFFFFF" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
-        <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-        <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-        <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
-        <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#FFFFFF"></polygon>
-        <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
-            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
-        </line>
-    </g>
+<!-- Group 6 - Skin Tone #8D5524 -->
+<g id="stickfolksgroup" transform="translate(266.8117, 850.8117)" fill-rule="nonzero">
+    <circle fill="#8D5524" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#8D5524" stroke-width="1.18829982">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <circle fill="#8D5524" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#8D5524"></polygon>
+    <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#8D5524" stroke-width="1.18829982">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
+    </line>
+</g>
+
+<!-- Group 7 - Skin Tone #FFDBAC -->
+<g id="stickfolksgroup" transform="translate(91.8117, 786.8117)" fill-rule="nonzero">
+    <circle fill="#FFDBAC" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFDBAC" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFDBAC" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFDBAC" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFDBAC" stroke-width="1.18829982">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <circle fill="#FFDBAC" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFDBAC" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFDBAC" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFDBAC" stroke-width="1.18829982"></line>
+    <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#FFDBAC"></polygon>
+    <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFDBAC" stroke-width="1.18829982">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
+    </line>
+</g>
+
+<!-- Group 8 - Skin Tone #8D5524 -->
+<g id="stickfolksgroup" transform="translate(726.8117, 806.8117)" fill-rule="nonzero">
+    <circle fill="#8D5524" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#8D5524" stroke-width="1.18829982">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <circle fill="#8D5524" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#8D5524" stroke-width="1.18829982"></line>
+    <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#8D5524"></polygon>
+    <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#8D5524" stroke-width="1.18829982">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
+    </line>
+</g>
 
     <!-- Group 9 -->
     <g id="stickfolksgroup" transform="translate(881.1536, 902.1536)" fill-rule="nonzero">
