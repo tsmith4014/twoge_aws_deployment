@@ -238,7 +238,7 @@
                 <polygon id="Star" stroke="#979797" stroke-width="1.18829982" fill="#D8D8D8" fill-rule="nonzero" points="540.647166 835.109628 559.676715 865.678192 601.850815 870.536629 571.348558 894.108223 578.590781 927.584211 540.647166 911.76947 502.703552 927.584211 509.945775 894.108223 479.443518 870.536629 521.617618 865.678192"></polygon>
                 <g id="Internet-Gateway" transform="translate(499.6508, 872.011)" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="10.6946984" font-weight="normal">
                     <text>
-                        <tspan x="5.68434189e-14" y="10">Internet Gateway</tspan>
+                        <tspan x="5.68434189e-14" y="10">***Web Traffic***</tspan>
                     </text>
                 </g>
                 <g id="Group-9" transform="translate(972.0548, 55.2505)" fill-rule="nonzero">

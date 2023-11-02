@@ -312,6 +312,151 @@ After setting up the inbound rules, your RDS instance should be ready to connect
     sudo systemctl status twoge.service
     ```
 
+16. **Navigate to etc/nginx and create the sites-avalable and sites-enabled dirs**
+
+    ```bash
+    sudo mkdir sites-available
+    sudo mkdir sites-enabled
+    ```
+
+17. **Navigate to sites-available and create/add the nginx config named twoge_nginx**
+
+    ```nginx
+    server {
+       listen 80;
+       server_name *;  # It's recommended to use underscore as a catch-all
+
+       location / {
+          include proxy_params;
+          proxy_pass http://twoge-lb-1073512007.us-east-2.elb.amazonaws.com;
+       }
+    }
+
+    ```
+
+18. **Link the config file to sites-enabled**
+
+    ```bash
+
+       sudo ln -s /etc/nginx/sites-available/twoge_nginx /etc/nginx/sites-enabled/
+
+    ```
+
+19. **Restart Nginx to apply changes**
+
+    ```bash
+
+      sudo systemctl daemon-reload
+
+    ```
+
+20. **Check Nginx status**
+
+    ```bash
+
+      sudo systemctl restart nginx
+
+    ```
+
+21. **Check Nginx status**
+
+    ```bash
+
+      sudo systemctl status nginx
+
+    ```
+
+---
+
+## Create an Image of the Instance
+
+To create an image of your EC2 instance:
+
+1. Select your instance in the EC2 dashboard.
+2. Go to **Actions** > **Image and templates** > **Create Image**.
+3. Enter an image name and add a description.
+4. Leave all other settings as default.
+5. Click **Create Image**.
+
+## Create a Launch Template Using the Image Created
+
+To create a launch template:
+
+1. Navigate to **Launch Templates** in the EC2 dashboard.
+2. Click **Create launch template**.
+3. Provide a name for your template and specify the template version.
+4. Under **Application and OS images**, click on **My AMIs**.
+5. Select **Owned by me** and choose the image you created earlier.
+6. Set the **Instance Type** to `t2.micro`.
+7. Choose the key pair that was used when creating the EC2 instance.
+8. In **Network Settings**, leave the subnet as default.
+9. For **Firewall/Security group**, select the existing security group associated with your EC2 instance.
+10. Under **Advanced details**, set the **IAM instance profile** to the role that allows EC2 access to the S3 bucket.
+11. Click to create the launch template.
+
+## Creating a Target Group
+
+To set up a target group for your instances:
+
+1. Go to **Target Groups** in the EC2 dashboard.
+2. Click **Create target group**.
+3. Choose **Instances** as the target type.
+4. Enter a name for your target group.
+5. Set the **Protocol port** to `9876`.
+6. Select **IPv4**.
+7. Choose the VPC that was used for the EC2 instance.
+8. Leave all other settings as default and click **Next**.
+9. In **Register targets**, select the EC2 instances you wish to include.
+10. Click to include them as pending below.
+11. Finally, click **Create target group**.
+
+---
+
+# Create Load Balancers
+
+To set up an Application Load Balancer:
+
+1. Navigate to **Load Balancers** in the EC2 dashboard.
+2. Click **Create load balancer** and select **Application Load Balancer**.
+3. Enter a name for your Load Balancer.
+4. For the VPC, select the same one you chose for your EC2 instance.
+5. Under **Mappings**, select the Availability Zones you wish to use.
+6. Create a new Security Group (SG) that allows HTTP/HTTPS and a custom TCP rule with port range `9876`.
+7. In **Listeners and routing**, select the target group you previously created.
+8. Click **Create Load Balancer**.
+
+# Create an Auto Scaling Group (ASG)
+
+To create an Auto Scaling Group:
+
+1. Go to **Auto Scaling groups** and click **Create Auto Scaling group**.
+2. Name your ASG and select the launch template you previously created.
+3. Choose the same VPC and Availability Zones as your EC2 instance.
+4. Attach the ASG to an existing load balancer by selecting your Load Balancer.
+5. Under **Health checks**, enable ELB health checks and set the health check grace period to `120`.
+6. Set the group size: Desired (`2`), Minimum (`1`), Maximum (`3`).
+7. Skip scaling policies for now.
+8. To add notifications, create a new topic, enter a topic name, and add your email as a recipient.
+9. Select event types for notifications (`Launch`, `Terminate`) and confirm subscriptions.
+10. Proceed through the next steps until you reach **Create ASG** and finalize the creation.
+
+# Create an ASG Dynamic Scaling Policy
+
+To create a dynamic scaling policy for your ASG:
+
+1. Select your ASG and go to **Automatic Scaling** > **Dynamic scaling policies**.
+2. Click **Create Dynamic scaling policy**.
+3. Choose **Simple Scaling** as the policy type.
+4. Name your policy and create a new CloudWatch alarm.
+5. For the metric, navigate to EC2 > By ASG and select your ASG.
+6. Choose the metric `CPUUtilization`.
+7. Set the metric condition to trigger at a specific threshold of CPU utilization.
+8. Create a notification topic with your email and set the alarm name.
+9. Once the CloudWatch alarm is created, return to the Dynamic Scaling Policy setup.
+10. Refresh the CloudWatch Alarm list, select your new alarm, and define the scaling action (e.g., add `1` capacity unit).
+11. Set the cooldown period (e.g., `60` seconds).
+12. Click **Create** to finalize the dynamic scaling policy.
+
 ---
 
 ## Create and Configure Amazon ALB
@@ -394,11 +539,6 @@ server {
    location / {
        include proxy_params;
        proxy_pass http://twoge-lb-1073512007.us-east-2.elb.amazonaws.com;
-   }
-
-   location /static/ {
-       proxy_set_header Host twoge-eval-s3.s3-us-east-2.amazonaws.com;
-       proxy_pass http://twoge-eval-s3.s3-us-east-2.amazonaws.com;
    }
 }
 ```
