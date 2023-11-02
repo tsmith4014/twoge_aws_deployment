@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1220px" height="1012px" viewBox="0 0 1220 1012" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>stickana</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="stickana" transform="translate(1.1883, 1.1883)">
+            <g id="stickana">
+                <g id="Group-3-2" fill-rule="nonzero">
+                    <g id="Group-2">
+                        <rect id="Rectangle" stroke="#000000" stroke-width="1.18829982" fill="#99CCFF" x="0" y="0" width="1218.00731" height="1010.05484"></rect>
+                        <rect id="Rectangle" fill="#808080" x="158.892662" y="307.513711" width="26.4821102" height="24.40585"></rect>
+                        <text id="EC2" fill="#000000" font-family="Helvetica" font-size="11.8829982" font-weight="normal">
+                            <tspan x="160.250718" y="324.80713">EC2</tspan>
+                        </text>
+                    </g>
+                </g>
+                <line x1="540.647166" y1="733.57404" x2="540.647166" y2="834.579525" id="Line-14" stroke="#979797" stroke-width="1.18829982" stroke-linecap="square"></line>
+                <polygon id="Line-7" fill="#979797" fill-rule="nonzero" points="1074.19378 361.042048 1079.54113 371.736746 1074.78793 371.736746 1074.78793 375.301645 1073.59963 375.301645 1073.59963 371.736746 1068.84644 371.736746"></polygon>
+                <line x1="543.023766" y1="752.586837" x2="540.647166" y2="740.703839" id="Line-16" stroke="#979797" stroke-width="1.18829982" stroke-linecap="square"></line>
+                <rect id="Rectangle" stroke="#979797" stroke-width="1.18829982" fill="#D8D8D8" fill-rule="nonzero" x="15.0548446" y="128.541133" width="1136.01463" height="623.857404"></rect>
+                <text id="iamrole" font-family="Helvetica" font-size="7.1297989" font-weight="normal" fill="#000000">
+                    <tspan x="999.8117" y="143.8117">IAM-ROLE</tspan>
+                </text>
+                <path id="Line-4" d="M1038.3117,115.8117 L1042.8117,124.8117 L1038.811,124.811 L1038.8117,328.8117 L1037.8117,328.8117 L1037.811,124.811 L1033.8117,124.8117 L1038.3117,115.8117 Z" fill="#979797" fill-rule="nonzero"></path>
+                <path id="Line" d="M774.018003,442.90705 L782.946411,447.547473 L779.708,449.897 L819.71635,505.018003 L820.010048,505.422653 L819.200748,506.010048 L818.90705,505.605398 L778.899,450.484 L775.662709,452.83403 L774.018003,442.90705 Z" fill="#979797" fill-rule="nonzero"></path>
+                <path id="Line-2" d="M191.20849,565.612166 L191.609862,565.910328 L219.786,586.84 L222.171835,583.630599 L226.713072,592.609862 L216.804919,590.855293 L219.19,587.644 L191.013538,566.713072 L190.612166,566.41491 L191.20849,565.612166 Z" fill="#979797" fill-rule="nonzero"></path>
+                <g id="Group" transform="translate(782.8117, 308.8117)" fill-rule="nonzero">
+                    <rect id="Rectangle" fill="#008000" x="0" y="0" width="37.546727" height="15.4478976"></rect>
+                    <g id="EC2" transform="translate(8.9921, 0)" fill="#000000" font-family="Helvetica" font-size="11.8829982" font-weight="normal">
+                        <text>
+                            <tspan x="0" y="11">EC2</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(736.8117, 308.8117)" fill-rule="nonzero">
+                    <rect id="Rectangle" fill="#008000" x="0" y="0" width="37.546727" height="15.4478976"></rect>
+                    <g id="EC2" transform="translate(8.9921, 0)" fill="#000000" font-family="Helvetica" font-size="11.8829982" font-weight="normal">
+                        <text>
+                            <tspan x="0" y="11">EC2</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(316.8117, 313.8117)" fill-rule="nonzero">
+                    <rect id="Rectangle" fill="#008000" x="0" y="0" width="37.546727" height="15.4478976"></rect>
+                    <g id="EC2" transform="translate(8.9921, 0)" fill="#000000" font-family="Helvetica" font-size="11.8829982" font-weight="normal">
+                        <text>
+                            <tspan x="0" y="11">EC2</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(271.8117, 313.8117)" fill-rule="nonzero">
+                    <rect id="Rectangle" fill="#008000" x="0" y="0" width="37.546727" height="15.4478976"></rect>
+                    <g id="EC2" transform="translate(8.9921, 0)" fill="#000000" font-family="Helvetica" font-size="11.8829982" font-weight="normal">
+                        <text>
+                            <tspan x="0" y="11">EC2</tspan>
+                        </text>
+                    </g>
+                </g>
+                <line x1="543.3117" y1="596.3117" x2="541.647166" y2="746.586837" id="Line-17" stroke="#979797" stroke-width="1.18829982" stroke-linecap="square"></line>
+                <g id="AWS-VPC" transform="translate(455.2614, 136.947)" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="15.4478976" font-weight="normal">
+                    <text id="AWS-Twoge-VPC">
+                        <tspan x="5.68434189e-14" y="15">AWS Twoge VPC</tspan>
+                    </text>
+                </g>
+                <rect id="Rectangle" fill="#008000" fill-rule="nonzero" x="645.8117" y="308.756856" width="37.546727" height="15.4478976"></rect>
+                <g id="EC2" transform="translate(654.8038, 308.7569)" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="11.8829982" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="11">EC2</tspan>
+                    </text>
+                </g>
+                <rect id="Rectangle" fill="#008000" fill-rule="nonzero" x="691.126682" y="308.756856" width="37.546727" height="15.4478976"></rect>
+                <g id="EC2" transform="translate(700.1187, 308.7569)" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="11.8829982" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="11">EC2</tspan>
+                    </text>
+                </g>
+                <rect id="Rectangle" fill="#008000" fill-rule="nonzero" x="736.441782" y="275.484461" width="37.546727" height="15.4478976"></rect>
+                <g id="EC2" transform="translate(745.4338, 275.4845)" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="11.8829982" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="11">EC2</tspan>
+                    </text>
+                </g>
+                <rect id="Rectangle" fill="#008000" fill-rule="nonzero" x="691.126682" y="275.484461" width="37.546727" height="15.4478976"></rect>
+                <g id="EC2" transform="translate(700.1187, 275.4845)" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="11.8829982" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="11">EC2</tspan>
+                    </text>
+                </g>
+                <rect id="Rectangle" fill="#008000" fill-rule="nonzero" x="781.756764" y="275.484461" width="37.546727" height="15.4478976"></rect>
+                <g id="EC2" transform="translate(790.7488, 275.4845)" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="11.8829982" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="11">EC2</tspan>
+                    </text>
+                </g>
+                <rect id="Rectangle" fill="#008000" fill-rule="nonzero" x="645.8117" y="275.484461" width="37.546727" height="15.4478976"></rect>
+                <text id="EC2" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="11.8829982" font-weight="normal">
+                    <tspan x="654.80376" y="286.484461">EC2</tspan>
+                </text>
+                <g id="Group" transform="translate(181.1865, 313.5101)" fill-rule="nonzero">
+                    <rect id="Rectangle" fill="#008000" x="0" y="0" width="37.546727" height="15.4478976"></rect>
+                    <g id="EC2" transform="translate(8.9921, 0)" fill="#000000" font-family="Helvetica" font-size="11.8829982" font-weight="normal">
+                        <text>
+                            <tspan x="0" y="11">EC2</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(226.5015, 313.5101)" fill-rule="nonzero">
+                    <rect id="Rectangle" fill="#008000" x="0" y="0" width="37.546727" height="15.4478976"></rect>
+                    <g id="EC2" transform="translate(8.9921, 0)" fill="#000000" font-family="Helvetica" font-size="11.8829982" font-weight="normal">
+                        <text>
+                            <tspan x="0" y="11">EC2</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(271.8166, 280.2377)" fill-rule="nonzero">
+                    <rect id="Rectangle" fill="#008000" x="0" y="0" width="37.546727" height="15.4478976"></rect>
+                    <g id="EC2" transform="translate(8.9921, 0)" fill="#000000" font-family="Helvetica" font-size="11.8829982" font-weight="normal">
+                        <text>
+                            <tspan x="0" y="11">EC2</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(226.5015, 280.2377)" fill-rule="nonzero">
+                    <rect id="Rectangle" fill="#008000" x="0" y="0" width="37.546727" height="15.4478976"></rect>
+                    <g id="EC2" transform="translate(8.9921, 0)" fill="#000000" font-family="Helvetica" font-size="11.8829982" font-weight="normal">
+                        <text>
+                            <tspan x="0" y="11">EC2</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(317.1315, 280.2377)" fill-rule="nonzero">
+                    <rect id="Rectangle" fill="#008000" x="0" y="0" width="37.546727" height="15.4478976"></rect>
+                    <g id="EC2" transform="translate(8.9921, 0)" fill="#000000" font-family="Helvetica" font-size="11.8829982" font-weight="normal">
+                        <text>
+                            <tspan x="0" y="11">EC2</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Group" transform="translate(181.1865, 280.2377)" fill-rule="nonzero">
+                    <rect id="Rectangle" fill="#008000" x="0" y="0" width="37.546727" height="15.4478976"></rect>
+                    <text id="EC2" fill="#000000" font-family="Helvetica" font-size="11.8829982" font-weight="normal">
+                        <tspan x="8.99205981" y="11">EC2</tspan>
+                    </text>
+                </g>
+                <polygon id="Line-12" fill="#979797" fill-rule="nonzero" points="247.693573 446.727447 246.187098 453.186675 243.873785 451.561499 192.500069 509.47016 192.271816 509.727447 191.693573 509.321205 191.921827 509.06392 243.295456 451.155025 240.982914 449.530508"></polygon>
+                <polygon id="Line-10" fill="#979797" fill-rule="nonzero" points="1017.40083 324.204753 1038.24314 328.204753 1017.40083 332.204753 1017.40083 328.649198 876.243144 328.649198 876.243144 327.760309 1017.40083 327.760309"></polygon>
+                <polygon id="Line-5" fill="#979797" fill-rule="nonzero" points="711.004394 446.852791 705.315305 457.369682 702.586289 453.476325 615.907251 514.225131 615.420695 514.566124 614.738708 513.59301 615.225265 513.252018 701.904205 452.503108 699.177429 448.611654"></polygon>
+                <g id="AWS-Cloud" transform="translate(38.5905, 75.8501)" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="15.4478976" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="15">AWS Cloud</tspan>
+                    </text>
+                </g>
+               <path d="M80.1809872,178.043876 L477.073126,178.043876 L477.073126,422.833638 L80.1809872,422.833638 L80.1809872,178.043876 Z" id="Rectangle" stroke="#000000" stroke-width="1.18829982" stroke-dasharray="5.941499085923217,5.941499085923217">
+        <animate attributeName="stroke-dashoffset" from="0" to="11.88299817184643" dur="1s" repeatCount="indefinite"/>
+        </path>
+        <!-- Availability Zone 1 -->
+        <g id="Availability-Zone-1" transform="translate(204.9525, 178.0439)" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="15.4478976" font-weight="normal">
+            <text>
+                <tspan x="0" y="15">Availability Zone 1</tspan>
+            </text>
+        </g>
+        <!-- Rectangle 2 with animation -->
+        <path d="M146.725777,239.835466 L411.716636,239.835466 L411.716636,361.042048 L146.725777,361.042048 L146.725777,239.835466 Z" id="Rectangle" stroke="#000000" stroke-width="1.18829982" stroke-dasharray="5.941499085923217,5.941499085923217">
+            <animate attributeName="stroke-dashoffset" from="0" to="11.88299817184643" dur="1s" repeatCount="indefinite"/>
+        </path>
+        <!-- Subnet-a -->
+        <g id="Subnet-a" transform="translate(242.9781, 246.9653)" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="15.4478976" font-weight="normal">
+            <text id="subnet">
+                <tspan x="0" y="15">Subnet-a</tspan>
+            </text>
+        </g>
+        <!-- sec group -->
+        <polygon id="nat1" stroke="#000000" stroke-width="1.18829982" fill="#FFFFFF" fill-rule="nonzero" points="279.815356 385.996344 246.542962 446.599634 313.087751 446.599634"></polygon>
+        <!-- Network ACL -->
+        <g id="Network-ACL" transform="translate(267.7441, 413.6453)" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="7.1297989" font-weight="normal">
+            <text id="Security">
+                <tspan x="0" y="6">Security</tspan>
+            <animate attributeName="fill" values="green;yellow;red;green" dur="3s" repeatCount="indefinite"/>
+        </text>
+        <text id="Group" fill="#000000">
+            <tspan x="0" y="13">Group</tspan>
+            <animate attributeName="fill" values="green;yellow;red;green" dur="3s" repeatCount="indefinite"/>
+        </text>
+        </g>
+        <!-- Rectangle 3 with animation -->
+        <path d="M561.442413,176.855576 L958.334552,176.855576 L958.334552,421.645338 L561.442413,421.645338 L561.442413,176.855576 Z" id="Rectangle" stroke="#000000" stroke-width="1.18829982" stroke-dasharray="5.941499085923217,5.941499085923217">
+            <animate attributeName="stroke-dashoffset" from="0" to="11.88299817184643" dur="1s" repeatCount="indefinite"/>
+        </path>
+        <!-- Availability Zone 2 -->
+        <g id="Availability-Zone-2" transform="translate(669.5777, 174.479)" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="15.4478976" font-weight="normal">
+            <text>
+                <tspan x="0" y="15">Availability Zone 2</tspan>
+            </text>
+        </g>
+        <!-- Rectangle 4 with animation -->
+        <path d="M608.974406,239.835466 L873.965265,239.835466 L873.965265,361.042048 L608.974406,361.042048 L608.974406,239.835466 Z" id="Rectangle" stroke="#000000" stroke-width="1.18829982" stroke-dasharray="5.941499085923217,5.941499085923217">
+            <animate attributeName="stroke-dashoffset" from="0" to="11.88299817184643" dur="1s" repeatCount="indefinite"/>
+        </path>
+        <!-- Subnet-b -->
+        <g id="Subnet-a" transform="translate(707.6033, 243.4004)" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="15.4478976" font-weight="normal">
+            <text>
+                <tspan x="0" y="15">Subnet-b</tspan>
+            </text>
+        </g>
+        <!-- NAT 2 -->
+        <g id="Group-3" transform="translate(709.7916, 387.9963)" fill="#FFFFFF" fill-rule="nonzero" stroke="#000000" stroke-width="1.18829982">
+            <g id="nat2-2">
+                <polygon id="nat2" points="33.2723949 0 0 58 66.5447898 58"></polygon>
+            </g>
+        </g>
+        <!-- Sec Group -->
+      <g id="Network-ACL" transform="translate(731.8117, 415.8117)" fill-rule="nonzero" font-family="Helvetica" font-size="7.1297989" font-weight="normal">
+        <text id="Security" fill="#000000">
+            <tspan x="0" y="6">Security</tspan>
+            <animate attributeName="fill" values="green;yellow;red;green" dur="3s" repeatCount="indefinite"/>
+        </text>
+        <text id="Group" fill="#000000">
+            <tspan x="0" y="13">Group</tspan>
+            <animate attributeName="fill" values="green;yellow;red;green" dur="3s" repeatCount="indefinite"/>
+        </text>
+    </g>
+        <!-- ELB -->
+        <rect id="Rectangle" stroke="#000000" stroke-width="1.18829982" fill="#FFCC66" fill-rule="nonzero" x="477.073126" y="483.436929" width="131.90128" height="60.6032907"></rect>
+        <g id="ELB" transform="translate(529.3583, 504.8263)" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="15.4478976" font-weight="normal">
+            <text>
+                <tspan x="0" y="15">ELB</tspan>
+            </text>
+        </g>
+        <!-- Public Subnet with animation -->
+        <path d="M455.683729,446.599634 L639.870201,446.599634 L639.870201,568.994516 L455.683729,568.994516 L455.683729,446.599634 Z" id="Rectangle" stroke="#000000" stroke-width="1.18829982" stroke-dasharray="5.941499085923217,5.941499085923217">
+            <animate attributeName="stroke-dashoffset" from="0" to="11.88299817184643" dur="1s" repeatCount="indefinite"/>
+        </path>
+        <!-- Custom SG -->
+        <g id="Public-Subnet" transform="translate(503.521, 443.5996)" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="15.4478976" font-weight="normal">
+            <text id="Custom-SG">
+                <tspan x="0" y="15">Custom SG</tspan>
+            </text>
+                </g>
+                <polygon id="Star" stroke="#979797" stroke-width="1.18829982" fill="#D8D8D8" fill-rule="nonzero" points="540.647166 835.109628 559.676715 865.678192 601.850815 870.536629 571.348558 894.108223 578.590781 927.584211 540.647166 911.76947 502.703552 927.584211 509.945775 894.108223 479.443518 870.536629 521.617618 865.678192"></polygon>
+                <g id="Internet-Gateway" transform="translate(499.6508, 872.011)" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="10.6946984" font-weight="normal">
+                    <text>
+                        <tspan x="5.68434189e-14" y="10">Internet Gateway</tspan>
+                    </text>
+                </g>
+                <g id="Group-9" transform="translate(972.0548, 55.2505)" fill-rule="nonzero">
+                    <rect id="Rectangle" stroke="#000000" stroke-width="1.18829982" fill="#FFCC66" x="0" y="0" width="131.90128" height="60.6032907"></rect>
+                    <g id="S3-Buckets" transform="translate(26.7367, 20.2011)" fill="#000000" font-family="Helvetica" font-size="15.4478976" font-weight="normal">
+                        <text>
+                            <tspan x="0" y="15">S3 Buckets</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Group-11" transform="translate(60.0548, 505.6252)" fill-rule="nonzero">
+                    <rect id="Rectangle" stroke="#000000" stroke-width="1.18829982" fill="#FF6666" x="0" y="0" width="131.90128" height="60.6032907"></rect>
+                    <g id="CloudFront" transform="translate(26.6843, 16.6362)" fill="#000000" font-family="Helvetica" font-size="15.4478976" font-weight="normal">
+                        <text>
+                            <tspan x="0" y="15">CloudFront</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Group-8" transform="translate(228.2523, 591.9342)" fill-rule="nonzero">
+                    <rect id="Rectangle" stroke="#000000" stroke-width="1.18829982" fill="#66CCFF" x="0" y="0" width="162" height="56"></rect>
+                    <g id="DirectConnect" transform="translate(17.2828, 15.4479)" fill="#000000" font-family="Helvetica" font-size="15.4478976" font-weight="normal">
+                        <text id="Auto-Scaling-Group">
+                            <tspan x="0" y="15">Auto Scaling Group</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Group-5" transform="translate(819.064, 505.245)" fill-rule="nonzero">
+                    <rect id="Rectangle" stroke="#000000" stroke-width="1.18829982" fill="#99FF99" x="0" y="0" width="131.90128" height="60.6032907"></rect>
+                    <g id="Offsite-DB" transform="translate(31.3016, 19.2596)" fill="#000000" font-family="Helvetica" font-size="15.4478976" font-weight="normal">
+                        <text id="AWS-RDS">
+                            <tspan x="0" y="15">AWS RDS</tspan>
+                        </text>
+                    </g>
+                </g>
+                <path id="Line-3" d="M474.745822,544.063631 L469.164259,552.435975 L467.179,548.962 L390.55977,592.745822 L390.125648,592.993891 L389.629509,592.125648 L390.063631,591.877579 L466.684,548.094 L464.699008,544.621787 L474.745822,544.063631 Z" fill="#979797" fill-rule="nonzero"></path>
+                <polygon id="Line-2" fill="#979797" fill-rule="nonzero" points="279.221207 361.042048 284.568556 371.736746 279.815356 371.736746 279.815356 387.184644 278.627057 387.184644 278.627057 371.736746 273.873857 371.736746"></polygon>
+                <polygon id="Line-4" fill="#979797" fill-rule="nonzero" points="323.916633 446.010971 322.137843 450.41883 477.833732 513.18752 478.384786 513.409678 477.940471 514.511785 477.389417 514.289628 321.694607 451.520384 319.917804 455.92994 311.998249 446.971627"></polygon>
+                <polygon id="Line-3" fill="#979797" fill-rule="nonzero" points="742.658135 361.042048 748.005484 371.736746 743.252285 371.736746 743.252285 387.184644 742.063985 387.184644 742.063985 371.736746 737.310786 371.736746"></polygon>
+                <line x1="543.212066" y1="596.731261" x2="543.806216" y2="545.646252" id="Path" stroke="#000000" stroke-width="1.18829982" fill="#000000" fill-rule="nonzero"></line>
+                <path d="M111.670932,209.533821 L932.786106,209.533821 L932.786106,386.590494 L111.670932,386.590494 Z" id="Animated-Rectangle" stroke="#979797" stroke-width="2.37659963" stroke-dasharray="11.88299817184643,11.88299817184643">
+    <animate attributeName="stroke-dashoffset" from="0" to="23.76599634369286" dur="1s" repeatCount="indefinite"/>
+</path>
+
+                <g id="Auto-Scaling-Grp" transform="translate(485.3912, 211.0695)" fill="#000000" fill-rule="nonzero" font-family="Helvetica" font-size="9.50639854" font-weight="normal">
+                    <text>
+                        <tspan x="0" y="9">Auto Scaling Grp</tspan>
+                    </text>
+                </g>
+            </g>
+
+
+            <!-- Animation for Internet Gateway -->
+            <animate attributeName="fill" values="white;red;blue" dur="3s" repeatCount="indefinite" xlink:href="#Star"></animate>
+
+
+
+                        <!-- Group 1 -->
+                    <g id="stickfolksgroup" transform="translate(786.8117, 21.8117)" fill-rule="nonzero">
+                <circle fill="#FFFFFF" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
+                <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+                <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+                <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+                <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+                <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
+                </line>
+                <circle fill="#FFFFFF" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
+                <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+                <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+                <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+                <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#FFFFFF"></polygon>
+                <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+                <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
+                </line>
+            </g>
+
+                    <!-- Group 2 -->
+            <g id="stickfolksgroup" transform="translate(550.8117, 21.8117)" fill-rule="nonzero">
+                <!-- Male -->
+                <circle fill="#FFFFFF" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
+                <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+                <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+                <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+                <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+                <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
+                </line>
+                <!-- Female -->
+                <circle fill="#FFFFFF" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
+                <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+                <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+                <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+                <polygon points="59.4149909 35.6489945 83.1809872 35.6489945 71.297989 71.297989" fill="#FFFFFF"></polygon>
+                <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+                <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
+                </line>
+            </g>
+                            <!-- Group 3 -->
+                <g id="stickfolksgroup" transform="translate(314.8117, 21.8117)" fill-rule="nonzero">
+                    <!-- Male -->
+                    <circle fill="#FFFFFF" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
+                    <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+                    <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+                    <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+                    <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+                    <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
+                    </line>
+                    <!-- Female -->
+                    <circle fill="#FFFFFF" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
+                    <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+                    <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+                    <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+                    <polygon points="59.4149909 35.6489945 83.1809872 35.6489945 71.297989 71.297989" fill="#FFFFFF"></polygon>
+                    <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+                    <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
+                    </line>
+                </g>
+            <!-- Group 4 -->
+<g id="stickfolksgroup" transform="translate(189.8117, 21.8117)" fill-rule="nonzero">
+    <circle fill="#FFFFFF" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <circle fill="#FFFFFF" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+    <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#FFFFFF"></polygon>
+    <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
+    </line>
+</g>
+
+<!-- Group 5 -->
+<g id="stickfolksgroup" transform="translate(1070.8117, 821.8117)" fill-rule="nonzero">
+    <circle fill="#FFFFFF" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+    <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
+    </line>
+    <circle fill="#FFFFFF" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
+    <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+    <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+    <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#FFFFFF"></polygon>
+    <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
+    </line>
+</g>
+
+            <!-- Group 6 -->
+    <g id="stickfolksgroup" transform="translate(266.8117, 850.8117)" fill-rule="nonzero">
+        <circle fill="#FFFFFF" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
+        <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
+        </line>
+        <circle fill="#FFFFFF" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
+        <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#FFFFFF"></polygon>
+        <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
+        </line>
+    </g>
+          <!-- Group 7 -->
+    <g id="stickfolksgroup" transform="translate(91.8117, 786.8117)" fill-rule="nonzero">
+        <circle fill="#FFFFFF" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
+        <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
+        </line>
+        <circle fill="#FFFFFF" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
+        <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#FFFFFF"></polygon>
+        <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
+        </line>
+    </g>
+        <!-- Group 8 -->
+    <g id="stickfolksgroup" transform="translate(726.8117, 806.8117)" fill-rule="nonzero">
+        <circle fill="#FFFFFF" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
+        <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
+        </line>
+        <circle fill="#FFFFFF" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
+        <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#FFFFFF"></polygon>
+        <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
+        </line>
+    </g>
+
+    <!-- Group 9 -->
+    <g id="stickfolksgroup" transform="translate(881.1536, 902.1536)" fill-rule="nonzero">
+        <circle fill="#FFFFFF" cx="11.8829982" cy="11.8829982" r="11.8829982"></circle>
+        <line x1="11.8829982" y1="23.7659963" x2="11.8829982" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="11.8829982" y1="71.297989" x2="0" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="11.8829982" y1="71.297989" x2="23.7659963" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="11.8829982" y1="35.6489945" x2="23.7659963" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11.8829982 35.6489945" to="360 11.8829982 35.6489945" dur="2s" repeatCount="indefinite"/>
+        </line>
+        <circle fill="#FFFFFF" cx="71.297989" cy="11.8829982" r="11.8829982"></circle>
+        <line x1="71.297989" y1="23.7659963" x2="71.297989" y2="71.297989" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="71.297989" y1="71.297989" x2="59.4149909" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <line x1="71.297989" y1="71.297989" x2="83.1809872" y2="95.0639854" stroke="#FFFFFF" stroke-width="1.18829982"></line>
+        <polygon points="59.4149909,35.6489945 83.1809872,35.6489945 71.297989,59.4149909" fill="#FFFFFF"></polygon>
+        <line x1="71.297989" y1="35.6489945" x2="83.1809872" y2="59.4149909" stroke="#FFFFFF" stroke-width="1.18829982">
+            <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 71.297989 35.6489945" to="360 71.297989 35.6489945" dur="2s" repeatCount="indefinite"/>
+        </line>
+    </g> 
+        </g>
+    </g>
+</svg>

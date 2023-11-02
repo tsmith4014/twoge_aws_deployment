@@ -2,6 +2,8 @@
 
 This is a comprehensive guide for deploying the Twoge application on AWS. It's designed for users with minimal AWS and networking knowledge. You'll find instructions for setting up the entire infrastructure using the AWS Management Console, as well as terminal commands needed for server setup and software installation.
 
+---
+
 ## Table of Contents
 
 - [Step-by-Step Guide](#step-by-step-guide)
@@ -13,11 +15,15 @@ This is a comprehensive guide for deploying the Twoge application on AWS. It's d
   - [Create Amazon ALB](#create-amazon-alb)
   - [Configure Amazon ASG with ALB](#configure-amazon-asg-with-alb)
   - [Configure Amazon SNS for ASG Notifications](#configure-amazon-sns-for-asg-notifications)
+  - [Setup Nginx for Reverse Proxy](#setup-nginx-for-reverse-proxy)
+  - [Static Content Hosting with ELB and S3](#static-content-hosting-with-elb-and-s3)
 - [Appendix](#appendix)
   - [Terminal Commands](#terminal-commands)
   - [JSON file of S3 bucket policy](#json-file-of-s3-bucket-policy)
-  - [Nginx Configuration Sample](#nginx-configuration-sample)
   - [Twoge Daemon Configuration](#twoge-daemon-configuration)
+  - [Nginx Configuration Sample](#nginx-configuration-sample)
+
+---
 
 ## Step-by-Step Guide
 
@@ -218,21 +224,6 @@ psql -h [DB-Endpoint] -U [Your-Username] -d [Database-Name]
 
 Enter the password when prompted.
 
-### Twoge Daemon
-
-Create a systemd service file:
-
-```sh
-sudo nano /etc/systemd/system/twoge.service
-```
-
-Enable and start the service:
-
-```sh
-sudo systemctl enable twoge.service
-sudo systemctl start twoge.service
-```
-
 ---
 
 ## Create and Configure Amazon ALB
@@ -268,6 +259,100 @@ sudo systemctl start twoge.service
 2. **Create Topic**: Click **Create topic** and provide a name.
 3. **Add Subscription**: Add a subscription with the protocol as `Email` and endpoint as your email address.
 4. **Attach to ASG**: Go back to your ASG settings, find the **Notifications** tab and attach the SNS topic.
+
+---
+
+### Setup Nginx for Reverse Proxy
+
+1. **SSH into your EC2 instance**
+
+   ```bash
+   ssh ec2-user@<Your_EC2_IP>
+   ```
+
+2. **Install Nginx**
+
+   ```bash
+   sudo amazon-linux-extras install nginx1 -y
+   ```
+
+3. **Start Nginx**
+
+   ```bash
+   sudo systemctl start nginx
+   ```
+
+4. **Enable Nginx to start at boot**
+
+   ```bash
+   sudo systemctl enable nginx
+   ```
+
+5. **Open Nginx configuration file**
+
+   ```bash
+   sudo nano /etc/nginx/nginx.conf
+   ```
+
+6. **Modify Nginx configuration**
+
+   Edit the `location / {}` block as follows:
+
+```nginx
+server {
+   listen 80;
+   server_name *;  # It's recommended to use underscore as a catch-all
+
+   location / {
+       include proxy_params;
+       proxy_pass http://twoge-lb-1073512007.us-east-2.elb.amazonaws.com;
+   }
+
+   location /static/ {
+       proxy_set_header Host twoge-eval-s3.s3-us-east-2.amazonaws.com;
+       proxy_pass http://twoge-eval-s3.s3-us-east-2.amazonaws.com;
+   }
+}
+```
+
+7. **Restart Nginx to apply changes**
+
+   ```bash
+   sudo systemctl restart nginx
+   ```
+
+---
+
+### Static Content Hosting with ELB and S3
+
+1. **Navigate to S3 Dashboard**: Open AWS Console and go to **Services > S3**.
+2. **Create a new bucket for static content**:
+
+   - **Name**: `twoge-static-content`
+   - **Uncheck**: `Block all public access`
+
+3. **Bucket Policy**: Attach a policy to make the bucket's content publicly readable.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicReadForGetBucketObjects",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::twoge-static-content/*"
+    }
+  ]
+}
+```
+
+4. **Navigate to ALB Dashboard**: Go to **Services > EC2 > Load Balancers**.
+5. **Modify Listener Rules**: Add a new rule to route requests for static content to the S3 bucket.
+
+   - **Conditions**: If `Path` is `/static/*`
+   - **Actions**: Forward to `twoge-static-content`
 
 ---
 
@@ -310,35 +395,41 @@ sudo systemctl start twoge.service
 }
 ```
 
+### Twoge Daemon Configuration
+
+```
+[Unit]
+Description=Gunicorn instance to serve twoge
+Wants=network.target
+After=syslog.target network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ec2-user/twoge
+Environment="PATH=/home/ec2-user/twoge/venv/bin"
+ExecStart=/home/ec2-user/twoge/venv/bin/gunicorn app:app -c /home/ec2-user/twoge/gunicorn_config.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
 ### Nginx Configuration Sample
 
 ```nginx
 server {
-    listen       80;
-    server_name  localhost;
+    listen 80;
+    server_name _;  # It's recommended to use underscore as a catch-all
 
-    location
-
- / {
-        root   /usr/share/nginx/html;
-        index  index.html index.htm;
+    location / {
+        include proxy_params;
+        proxy_pass http://twoge-lb-1073512007.us-east-2.elb.amazonaws.com;
     }
 
     location /static/ {
-        alias /path/to/static/files/;
+        proxy_set_header Host vega-twoge-static-files.s3.eu-west-2.amazonaws.com;
+        proxy_pass http://vega-twoge-static-files.s3.eu-west-2.amazonaws.com;
     }
 }
-```
-
-### Twoge Daemon Configuration
-
-```ini
-[Unit]
-Description=Twoge Daemon
-
-[Service]
-ExecStart=/path/to/twoge/app
-
-[Install]
-WantedBy=multi-user.target
 ```
