@@ -1,6 +1,14 @@
 # Comprehensive AWS Deployment Guide for Twoge Application
 
-This is a comprehensive guide for deploying the Twoge application on AWS. It's designed for users with minimal AWS and networking knowledge. You'll find instructions for setting up the entire infrastructure using the AWS Management Console, as well as terminal commands needed for server setup and software installation.
+This is a comprehensive guide for deploying the Twoge application on AWS. It's designed for users with minimal AWS and networking knowledge. You'll find instructions for setting up the entire infrastructure using the AWS Management Console, as well as terminal commands needed for server setup and software installation.  
+
+---
+
+Embark on a captivating expedition into the deployment cosmos of the Twoge application, powered by AWS's mighty services. This guide not only navigates you through the steps of erecting a robust AWS infrastructure but also showcases our deployment saga through an animated, music-accompanied AWS architecture diagram that’s nothing short of a celestial experience: [Twoge AWS Architecture Odyssey](https://tsmith4014.github.io/twoge_aws_deployment/). 
+
+Imagine a diagram that comes alive, where each service and connection pulsates with the rhythm of animation and music, set against the tranquil vastness of a star-studded digital cosmos. This is an invitation to interact with the very fabric of our cloud setup, to understand its dynamics, and to add your own flare by populating this virtual sky with more stars.
+
+This README is your launchpad. Whether you’re a neophyte to cloud formations or a sage of system administrations, you’ll find your bearings here with straightforward instructions, clear command-line examples, and the thrill of deploying a live application that will soar through the AWS cloud space.
 
 ---
 
