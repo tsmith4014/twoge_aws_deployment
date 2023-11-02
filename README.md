@@ -484,9 +484,11 @@ To create a dynamic scaling policy for your ASG:
 
 ## Stress Testing the System
 
-Before pushing your system to production, it's critical to ensure that it can handle high traffic loads. The following Python script applies stress to your CPU by utilizing maximum processing power, which helps in validating the auto-scaling features of your AWS setup.
+Before pushing your system to production, it's critical to ensure that it can handle high traffic loads. The following Python script applies stress to your CPU by utilizing maximum processing power, which helps in validating the auto-scaling features of your AWS setup:
 
-To execute the stress test, save the below script as `stress_test.py` on your EC2 instance:
+1. Save the script as stress.py.
+2. Make it executable by running chmod +x stress.py in your terminal.
+3. Execute the script using ./stress.py.
 
 ```python
 #!/usr/bin/env python
