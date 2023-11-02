@@ -415,12 +415,14 @@ RestartSec=10
 WantedBy=multi-user.target
 ```
 
+cd /etc/nginx
+
 ### Nginx Configuration Sample
 
 ```nginx
 server {
     listen 80;
-    server_name _;  # It's recommended to use underscore as a catch-all
+    server_name _;  #underscore as a catch-all
 
     location / {
         include proxy_params;
@@ -434,6 +436,8 @@ server {
 }
 ```
 
+---
+
 ## Background Music Credits
 
 ### Stay Quiet
@@ -443,3 +447,5 @@ server {
 - **Source**: [Free Music Archive](https://freemusicarchive.org)
 
 This track is used under the terms of the CC0/Public Domain. While no attribution is legally required, credit is given to the artist for their work. It is recommended to verify the status of both the composition and the recording, especially for commercial use, as Public Domain laws may vary by country.
+
+---
