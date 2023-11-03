@@ -251,9 +251,9 @@
                 </g>
                 <g id="Group-11" transform="translate(60.0548, 505.6252)" fill-rule="nonzero">
                     <rect id="Rectangle" stroke="#000000" stroke-width="1.18829982" fill="#FF6666" x="0" y="0" width="131.90128" height="60.6032907"></rect>
-                    <g id="CloudFront" transform="translate(26.6843, 16.6362)" fill="#000000" font-family="Helvetica" font-size="15.4478976" font-weight="normal">
+                    <g id="CloudWatch" transform="translate(26.6843, 16.6362)" fill="#000000" font-family="Helvetica" font-size="15.4478976" font-weight="normal">
                         <text>
-                            <tspan x="0" y="15">CloudFront</tspan>
+                            <tspan x="0" y="15">CloudWatch</tspan>
                         </text>
                     </g>
                 </g>
