@@ -298,7 +298,7 @@ After setting up the inbound rules, your RDS instance should be ready to connect
     RestartSec=10
 
     [Install]
-       WantedBy=multi-user.target
+    WantedBy=multi-user.target
     ```
 
 11. **Move the service file to the systemd directory**
